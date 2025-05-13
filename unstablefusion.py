@@ -309,9 +309,7 @@ class StableDiffusionManager:
 
     def get_local_handler(self, token=True):
         if self.cached_local_handler == None:
-            self.cached_local_handler = StableDiffusionHandler(token)
-            # self.cached_local_handler = DummyStableDiffusionHandler()
-
+            self.cached_local_handler = DummyStableDiffusionHandler()
         return self.cached_local_handler
     
     def get_server_handler(self):
@@ -447,10 +445,7 @@ class PaintWidget(QWidget):
     def toggle_should_preview_scratchpad(self):
         self.set_should_preview_scratchpad(not self.should_preview_scratchpad)
 
-    def toggle_should_swap_buttons(self):
-        self.set_should_swap_buttons(not self.shoulds_swap_buttons)
-
-    def set_should_swap_buttons(self, val):
+    def toggle_should_swap_buttons(self, val):
         self.shoulds_swap_buttons = val
 
         if self.paint_checkbox:
